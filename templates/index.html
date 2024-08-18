@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .input {
+            font-size: 1em;
+            color: #0e0d0d;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Placement Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="N">N :</label>
+            <input type="number" name="N" required>
+            
+            <label for="P">P :</label>
+            <input type="number" name="P" required>
+            			
+
+            <label for="K">K :</label>
+            <input type="number" name="K" required>
+            
+            <label for="temperature">Temperature :</label>
+            <input type="number" step="any" name="Temperature" required>
+            
+            <label for="humidity">Humidity :</label>
+            <input type="number" step="any" name="Humidity" required>
+
+            <label for="PH">PH :</label>
+            <input type="number" step="any" name="PH" required>
+
+            <label for="Rainfall">Rainfall :</label>
+            <input type="number" step="any" name="Rainfall" required>
+            
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="input">{{ input_text }}</div>
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
